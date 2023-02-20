@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Exibição de URLs em Iframe</title>
+  </head>
+  <body>
+
+    <iframe id="urlFrame" width="560" height="315" src="https://www.youtube.com/embed/zP3IC-PuZ9Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+    <script>
+      const urls = [
+        "https://youtu.be/zP3IC-PuZ9Y",
+        "https://youtu.be/ljxVRDLwu9U"
+      ];
+
+      let currentUrlIndex = 0;
+
+      const urlFrame = document.getElementById("urlFrame");
+
+      function updateUrl() {
+        urlFrame.src = urls[currentUrlIndex];
+
+        currentUrlIndex++;
+        if (currentUrlIndex >= urls.length) {
+          currentUrlIndex = 0;
+        }
+      }
+
+      setInterval(updateUrl, 5000);
+    </script>
+  </body>
+</html>
